@@ -10,7 +10,7 @@ class OnBoardingController extends GetxController {
     currentIndex.value = index;
   }
   final List<Color> background = [
-    Colors.green,
+    Colors.white,
     Colors.blue,
     Colors.purple,
   ];

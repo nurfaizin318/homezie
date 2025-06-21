@@ -43,7 +43,7 @@ class RegisterPage extends StatelessWidget {
                         Image.asset(
                           "assets/images/logo_product_2.png",
                           fit: BoxFit.cover,
-                          height: 10,
+                          height: 16,
                           width: 100,
                         ),
                         const SizedBox(height: 20),

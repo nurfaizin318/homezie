@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homzie/Module/Home/viewModel.dart';
@@ -18,331 +17,256 @@ class Home extends StatelessWidget {
     final controller = Get.find<HomeController>();
 
     return Scaffold(
-        backgroundColor: AppColors.primary,
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text("Tiketku"),
-          backgroundColor: AppColors.error.withAlpha(20),
-          actions: [
+      backgroundColor: AppColors.background,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        // title: const Text("Tiketku"),
+        backgroundColor: AppColors.background.withAlpha(20),
+        actions: [],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Container(
-              decoration: RoundedFixBox.getDecoration(
-                radius: 30,
-                color: AppColors.lightGrey.withAlpha(60),
-              ),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.notifications,
-                  size: 20,
-                ),
-                onPressed: () {
-                  // Implement notification action
-                },
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.symmetric(horizontal: 24),
+
+              child: Column(
+                children: [
+                  Text("Choose Your", style: TextStyle(fontSize: 21)),
+                  Text(
+                    " Dream House",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                ],
               ),
             ),
+            SizedBox(height: 15),
+            TextFieldSearch(),
+            SizedBox(height: 50),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 8),
-              decoration: RoundedFixBox.getDecoration(
-                radius: 30,
-                color: AppColors.lightGrey.withAlpha(60),
-              ),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.chat_bubble,
-                  size: 17,
-                ),
-                onPressed: () {
-                  // controller.navigateToChat();
-                },
+              margin: EdgeInsets.symmetric(horizontal: 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Near",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  Text("More"),
+                ],
               ),
             ),
+            SizedBox(height: 15),
+            HouseList(),
+            SizedBox(height: 15),
+            HouseList(),
+            SizedBox(height: 15),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 24),
+              child: Text(
+                "Features",
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              ),
+            ),
+             SizedBox(height: 15),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: RoundedBoxWithShadow.getDecoration(
+                      radius: 10,
+                      color: Colors.white,
+                    ),
+                    child: Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.asset(
+                            "assets/images/checkmark.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Property List Criteria",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "Features",
+                              style: TextStyle(
+                                fontSize: 14,
+                                // fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+                 SizedBox(height: 15),
+               Container(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: RoundedBoxWithShadow.getDecoration(
+                      radius: 10,
+                      color: Colors.white,
+                    ),
+                    child: Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.asset(
+                            "assets/images/calculator.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Property List Criteria",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "Features",
+                              style: TextStyle(
+                                fontSize: 14,
+                                // fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+             SizedBox(height: 60),
           ],
+          
         ),
-        body: Obx(
-          () => SingleChildScrollView(
-            child: Container(
-              color: AppColors.lightGrey,
+      ),
+    );
+  }
+
+  Container HouseList() {
+    return Container(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: List.generate(5, (index) {
+            return Container(
+              margin: EdgeInsets.only(left: 20, top: 15, bottom: 10),
+              width: 191,
+              height: 195,
+              decoration: RoundedBoxWithShadow.getDecoration(
+                radius: 10,
+                color: Colors.white,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AccountCard(height, width, controller),
-
-                  const SizedBox(height: 10),
-
-                  Container(
-                    padding: const EdgeInsets.all(16),
-                    margin: EdgeInsets.symmetric(horizontal: 16),
-                    decoration: RoundedFixBox.getDecoration(
-                        radius: 20, color: Colors.white),
+                  Image.asset(
+                    "assets/images/house-icon.png",
+                    fit: BoxFit.cover,
+                    height: 90,
+                    width: 191,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          "Cari Tiket Bus",
+                          'Card Title',
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
-                        const SizedBox(height: 16),
-
-                        // Keberangkatan
-                        _BusTicketField(
-                          icon: Icons.location_on_outlined,
-                          label: "Terminal Keberangkatan",
-                          value: "Solo (Tirtonadi)",
-                          onTap: () {
-                            controller.navigateToSelectCity();
-                          },
+                        const SizedBox(height: 4),
+                        const Text(
+                          'This is a description of the card.',
+                          style: TextStyle(fontSize: 12, color: AppColors.info),
                         ),
-                        const SizedBox(height: 12),
-
-                        // Tujuan
-                        _BusTicketField(
-                          icon: Icons.flag_outlined,
-                          label: "Terminal Tujuan",
-                          value: "Jakarta (Pulogebang)",
-                          onTap: () {
-                            controller.navigateToSelectCity();
-                          },
-                        ),
-                        const SizedBox(height: 12),
-
-                        // Kelas Bus
-                        _BusTicketField(
-                          icon: Icons.event_seat_outlined,
-                          label: "Kelas Bus",
-                          value: "Executive",
-                          onTap: () {
-                            print("test");
-                          },
-                        ),
-                        const SizedBox(height: 12),
-
-                        // Tanggal
-                        _BusTicketField(
-                          icon: Icons.date_range_outlined,
-                          label: "Tanggal Keberangkatan",
-                          value: "20 Mei 2025",
-                          onTap: () {
-                            print("test");
-                          },
-                        ),
-
-                        const SizedBox(height: 16),
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+                        const SizedBox(height: 8),
+                        Container(
+                          child: Row(
+                            children: const [
+                              Expanded(
+                                child: Text(
+                                  'Jakarta, Indonesia',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black54,
+                                  ),
+                                ),
                               ),
-                              padding: const EdgeInsets.symmetric(vertical: 14),
-                            ),
-                            child: const Text(
-                              "Cari Tiket",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                            ),
+                              Icon(Icons.map, size: 16, color: Colors.blue),
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
-
-                  const SizedBox(height: 24),
-
-                  // Recent Transactions
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text("Recent Transactions",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold)),
-                        Text("See All", style: TextStyle(color: Colors.blue)),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  ListTile(
-                    // leading: Image.asset('assets/bca_logo.png', width: 40), // Replace with real image
-                    title: const Text("OLIVIA GRACE BENNETT"),
-                    subtitle: const Text("17 Dec 2024 - 13:21"),
-                    trailing: const Text(
-                      "-\$20.75",
-                      style: TextStyle(
-                          color: Colors.red, fontWeight: FontWeight.bold),
-                    ),
-                  ),
                 ],
               ),
-            ),
-          ),
-        ));
-  }
-
-  Container WalletMenu(double width) {
-    return Container(
-      width: double.infinity,
-      decoration: RoundedFixBox.getDecoration(radius: 20, color: Colors.white),
-      padding: EdgeInsets.all(20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _ActionButton(
-            icon: Icons.qr_code_scanner,
-            label: "Scan",
-            color: AppColors.primary,
-          ),
-          _ActionButton(
-            icon: Icons.account_balance_wallet_outlined,
-            label: "Top Up",
-            color: AppColors.secondary,
-          ),
-          _ActionButton(
-            icon: Icons.send_outlined,
-            label: "Transfer",
-            color: AppColors.accent,
-          ),
-          _ActionButton(
-            icon: Icons.money_outlined,
-            label: "widtrawal",
-            color: AppColors.error,
-          ),
-        ],
+            );
+          }),
+        ),
       ),
     );
   }
 
-  Stack AccountCard(double height, double width, HomeController controller) {
-    return Stack(
-      children: [
-        Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 250,
-              decoration: BoxDecoration(
-                color: AppColors.primary,
-                image: DecorationImage(
-                    image: AssetImage("assets/images/Star.png"),
-                    fit: BoxFit.cover),
-              ),
-              padding: const EdgeInsets.only(top: 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(controller.profile.value?.name.toUpperCase() ?? "",
-                      style:
-                          const TextStyle(color: Colors.white, fontSize: 24)),
-                  const SizedBox(height: 6),
-                  Skeletonizer(
-                    enabled: controller.isLoadingBalance.value,
-                    enableSwitchAnimation: true,
-                    child: Text(controller.balanceModel.value?.id ?? "",
-                        style: TextStyle(color: Colors.white70, fontSize: 14)),
-                  ),
-                  const SizedBox(height: 6),
-                  Skeletonizer(
-                    enabled: controller.isLoadingBalance.value,
-                    enableSwitchAnimation: true,
-                    child: Text(
-                      CurrencyConverter.formatRupiah(
-                          controller.balanceModel.value?.balance ?? 0),
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: width,
-              height: 60,
-              color: AppColors.lightGrey,
-            )
-          ],
-        ),
-        Positioned(
-            bottom: 10,
-            child: Container(
-                width: width,
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: WalletMenu(width)))
-      ],
-    );
-  }
-}
-
-class _ActionButton extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final Color color;
-
-  const _ActionButton(
-      {required this.icon, required this.label, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          decoration: RoundedFixBox.getDecoration(
-            radius: 12,
-            color: color.withAlpha(40),
+  Container TextFieldSearch() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 24),
+      child: TextField(
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white,
+          focusColor: Colors.white,
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+            borderRadius: BorderRadius.circular(25),
           ),
-          padding: const EdgeInsets.all(12),
-          child: Icon(icon, color: color, size: 26),
-        ),
-        const SizedBox(height: 6),
-        Text(label),
-      ],
-    );
-  }
-}
-
-class _BusTicketField extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final String value;
-  final VoidCallback? onTap;
-
-  const _BusTicketField({
-    required this.icon,
-    required this.label,
-    required this.value,
-    this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(8),
-      child: Row(
-        children: [
-          Icon(icon, color: Colors.blue),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(label,
-                      style: const TextStyle(fontSize: 12, color: Colors.grey)),
-                  const SizedBox(height: 4),
-                  Text(value,
-                      style: const TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.w600)),
-                ],
-              ),
-            ),
+          border: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+            borderRadius: BorderRadius.circular(25),
           ),
-        ],
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+            borderRadius: BorderRadius.circular(25),
+          ),
+          hintText: 'Email address',
+          hintStyle: const TextStyle(color: Colors.grey),
+          prefixIcon: const Icon(Icons.search, color: Colors.grey),
+        ),
       ),
     );
   }

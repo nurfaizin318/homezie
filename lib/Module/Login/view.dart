@@ -46,11 +46,11 @@ class Login extends StatelessWidget {
                               Image.asset(
                                 "assets/images/logo_product_2.png",
                                 fit: BoxFit.cover,
-                                height: 10,
+                                height: 15,
                                 width: 100,
                               ),
                               const SizedBox(
-                                height: 20,
+                                height: 10,
                               ),
                               Text("Sign in to your Account",
                                   textAlign: TextAlign.center,

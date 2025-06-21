@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/onboarding',
+      initialRoute: '/layout',
       initialBinding: LayoutBinding(),
       getPages: Routes.pages,
       theme: AppTheme.themeData,

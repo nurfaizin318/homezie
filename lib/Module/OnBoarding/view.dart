@@ -32,14 +32,14 @@ class OnBoarding extends StatelessWidget {
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
       bodyTextStyle: bodyStyle,
       bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-      pageColor: Colors.transparent,
+      pageColor: Colors.white,
       imagePadding: EdgeInsets.zero,
     );
 
-    return Obx(()=> IntroductionScreen(
+    return IntroductionScreen(
       key: introKey,
       onChange: (value) => controller.onPageChanged(value),
-      globalBackgroundColor: controller.background[controller.currentIndex.value],
+      globalBackgroundColor: Colors.white,
       globalHeader: const Align(
         alignment: Alignment.topRight,
         child: SafeArea(
@@ -53,35 +53,24 @@ class OnBoarding extends StatelessWidget {
       pages: [
         PageViewModel(
           title: "Selamat Datang",
-          body: "tiketku siap mengantar anda sampai tujuan",
-          image: buildImage('ride.jpg'),
+          body: "Find your dream house,\n your house your choice",
+          image: buildImage('onboarding-1.png'),
           decoration: pageDecoration,
         ),
         
         PageViewModel(
           title: "Promo Melimpah",
-          body: "NIkmati promo melimpah dari tiketku",
-          image: buildImage('ride.jpg'),
+          body: "Pick your house \n based on what you need",
+           image: buildImage('onboarding-2.png'),
           decoration: pageDecoration,
         ),
-        PageViewModel(
-          title: "Aman dan terpercaya",
-          bodyWidget: const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Aman dan Nyaman", style: bodyStyle),
-              // Text("keamanan dan kenyamanan anda", style: bodyStyle),
-            ],
-          ),
-          decoration: pageDecoration.copyWith(
-            bodyFlex: 2,
-            imageFlex: 4,
-            bodyAlignment: Alignment.bottomCenter,
-            imageAlignment: Alignment.topCenter,
-          ),
-          image: buildImage('ride.jpg'),
-          reverse: true,
+          PageViewModel(
+          title: "Calculate your home mortgage",
+          body: "Easily calculate your home mortgage",
+          image: buildImage('onboarding-3.png'),
+          decoration: pageDecoration,
         ),
+        
       ],
       onDone: () => onIntroEnd(context),
       onSkip: () => onIntroEnd(context), // You can override onSkip callback
@@ -91,9 +80,9 @@ class OnBoarding extends StatelessWidget {
       showBackButton: false,
       //rtl: true, // Display as right-to-left
       back: const Icon(Icons.arrow_back),
-      skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.surface), ),
-      next: const Icon(Icons.arrow_forward, color: AppColors.surface),
-      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.surface),),
+      skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.info), ),
+      next: const Icon(Icons.arrow_forward, color: AppColors.info),
+      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.info),),
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
       controlsPadding: kIsWeb
@@ -101,8 +90,8 @@ class OnBoarding extends StatelessWidget {
           : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
-        color: AppColors.surface,
-        activeColor: AppColors.textSecondary,
+        color: AppColors.textSecondary,
+        activeColor: AppColors.info,
         activeSize: Size(22.0, 10.0),
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
@@ -114,6 +103,6 @@ class OnBoarding extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(8.0)),
         ),
       ),
-    ));
+    );
   }
 }

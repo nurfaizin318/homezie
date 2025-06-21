@@ -1,4 +1,5 @@
 
+import 'package:awesome_bottom_bar/widgets/inspired/inspired.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
@@ -16,10 +17,6 @@ const List<TabItem> items = [
   TabItem(
     icon: Icons.search_sharp,
     title: 'Shop',
-  ),
-  TabItem(
-    icon: Icons.favorite_border,
-    title: 'Wishlist',
   ),
   TabItem(
     icon: Icons.shopping_cart_outlined,
@@ -40,17 +37,18 @@ class Layout extends StatelessWidget {
 
     return Scaffold(
         bottomNavigationBar: Obx(
-          () =>      BottomBarCreative(
+          () =>      BottomBarInspiredOutside(
               items: items,
               backgroundColor: AppColors.primary,
               color: Colors.white,
-              colorSelected: Colors.blue,
+              colorSelected: Colors.white,
+              
               indexSelected: controller.currentIndex.value,
-              highlightStyle:const HighlightStyle(
-                isHexagon: true,
-              ),
+              animated: true,
+             itemStyle: ItemStyle.circle,
               onTap: (int index) => controller.onTabTapped(index)
             ),
+            
         ),
         body: Obx(() => controller.children[controller.currentIndex.value]));
   }
