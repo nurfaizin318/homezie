@@ -88,7 +88,7 @@ class Home extends StatelessWidget {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
+                          child: Image.asset( 
                             "assets/images/checkmark.png",
                             fit: BoxFit.cover,
                             height: 100,
@@ -199,39 +199,46 @@ class Home extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Card Title',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
+                    child: InkWell(
+                      onTap: () {
+                        // Navigate to detail page
+                        Get.toNamed("/detail");
+                        print("tets");
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Card Title',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 4),
-                        const Text(
-                          'This is a description of the card.',
-                          style: TextStyle(fontSize: 12, color: AppColors.info),
-                        ),
-                        const SizedBox(height: 8),
-                        Container(
-                          child: Row(
-                            children: const [
-                              Expanded(
-                                child: Text(
-                                  'Jakarta, Indonesia',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.black54,
+                          const SizedBox(height: 4),
+                          const Text(
+                            'This is a description of the card.',
+                            style: TextStyle(fontSize: 12, color: AppColors.info),
+                          ),
+                          const SizedBox(height: 8),
+                          Container(
+                            child: Row(
+                              children: const [
+                                Expanded(
+                                  child: Text(
+                                    'Jakarta, Indonesia',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.black54,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Icon(Icons.map, size: 16, color: Colors.blue),
-                            ],
+                                Icon(Icons.map, size: 16, color: Colors.blue),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],

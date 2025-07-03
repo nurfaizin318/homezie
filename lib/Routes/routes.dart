@@ -2,13 +2,12 @@
 import 'package:get/get.dart';
 import 'package:homzie/Binding/binding.dart';
 import 'package:homzie/Module/Chat/View.dart';
+import 'package:homzie/Module/Detail/view.dart';
 import 'package:homzie/Module/Layout/View.dart';
 import 'package:homzie/Module/Login/view.dart';
 import 'package:homzie/Module/OnBoarding/view.dart';
 import 'package:homzie/Module/Profile/View.dart';
 import 'package:homzie/Module/Register/view.dart';
-import 'package:homzie/Module/SeatSelection/view.dart';
-import 'package:homzie/Module/Select%20city/view.dart';
 import 'package:homzie/Module/SplashScreen/view.dart';
 
 class Routes {
@@ -34,13 +33,10 @@ class Routes {
         page: () => const OnBoarding(),
         binding: OnBoardingBinding()),
     GetPage(
-        name: "/select-city",
-        page: () => const SelectCity(),
-        binding: SelectCityBinding()),
-    GetPage(
-        name: "/seat-selection",
-        page: () =>  SeatSelection(),
-        binding: SeatSelectionBinding()),
+        name: "/detail",
+        page: () =>  Detail(),
+        binding: DetailBinding()),
+
 
   ];
 }

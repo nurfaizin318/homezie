@@ -1,14 +1,13 @@
 
 import 'package:get/get.dart';
 import 'package:homzie/Module/Chat/ViewModel.dart';
+import 'package:homzie/Module/Detail/viewModel.dart';
 import 'package:homzie/Module/Home/viewModel.dart';
 import 'package:homzie/Module/Layout/viewModel.dart';
 import 'package:homzie/Module/Login/viewModel.dart';
 import 'package:homzie/Module/OnBoarding/viewModel.dart';
 import 'package:homzie/Module/Profile/ViewModel.dart';
 import 'package:homzie/Module/Register/viewModel.dart';
-import 'package:homzie/Module/SeatSelection/viewModel.dart';
-import 'package:homzie/Module/Select%20city/viewModel.dart';
 import 'package:homzie/Module/SplashScreen/viewModel.dart';
 
 class LoginBinding implements Bindings {
@@ -64,17 +63,10 @@ class OnBoardingBinding implements Bindings {
 }
 
 
-class SelectCityBinding implements Bindings {
+class DetailBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => SelectCityController(), fenix: false);
-  }
-}
-
-class SeatSelectionBinding implements Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => SeatController(), fenix: false);
+    Get.lazyPut(() => DetailController(), fenix: false);
   }
 }
 
