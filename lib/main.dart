@@ -36,9 +36,6 @@ class _MyAppState extends State<MyApp> {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 
-
-  @override
-  void initState() {
     // TODO: implement initState
   @override
   void initState() {
@@ -48,7 +45,10 @@ class _MyAppState extends State<MyApp> {
       showNotification: true,
       showInspectorOnShake: true,
       maxCallsCount: 1000,
+      navigatorKey: navigatorKey
     );
+    _alice.setNavigatorKey(navigatorKey);
+     _alice.showInspector();
     _dio = Dio(BaseOptions(
       followRedirects: false,
     ));
@@ -56,12 +56,11 @@ class _MyAppState extends State<MyApp> {
   }
 
 
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
 
     return GetMaterialApp(
+      navigatorKey: _alice.getNavigatorKey(),
       debugShowCheckedModeBanner: false,
       initialRoute: '/layout',
       initialBinding: LayoutBinding(),

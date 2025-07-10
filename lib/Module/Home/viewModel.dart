@@ -6,13 +6,17 @@ import 'package:homzie/Module/Login/model.dart';
 import 'package:homzie/Repository/homeRepository.dart';
 import 'package:homzie/Utils/Extention/Storage/hive.dart';
 
-
 class HomeController extends GetxController {
   RxBool obsecureTestStatus = true.obs;
   final Rx<LoginModel?> profile = Rx<LoginModel?>(null);
-  final Rx<GetBalanceModel?> balanceModel = Rx<GetBalanceModel?>(null);
-
-  RxBool isLoadingBalance = true.obs;
+  final Rx<List<HouseEntity>> houseList = Rx<List<HouseEntity>>([]);
+  List<Map<String, dynamic>> houses = [
+    {'name': 'Alice', 'age': 25},
+    {'name': 'Bob', 'age': 30},
+    {'name': 'Charlie', 'age': 28},
+    {'name': 'Charlie', 'age': 28},
+  ];
+  RxBool isLoadingHouse = true.obs;
 
   var homeRepository = Homerepository.instance;
 
@@ -36,20 +40,25 @@ class HomeController extends GetxController {
     profile.value = model;
   }
 
-  void getBalance(String id) async {
-    final result = await homeRepository.getBalance(id);
+  void getHouseList() async {
+    final result = await homeRepository.getHouseList();
 
     if (result.success) {
-      balanceModel.value = GetBalanceModel.fromJson(result.data);
+      var data =
+          (result.data as List)
+              .map((house) => HouseEntity.fromJson(house))
+              .toList();
+      houseList.value = data.sublist(0, 4);
+    } else {
+      print("Error fetching house list: ${result.message}");
     }
-
-    print(balanceModel.value?.id);
-    isLoadingBalance.value = false;
+    isLoadingHouse.value = false;
   }
 
   @override
   void onInit() {
-    // getDataFromStorage();
+    getDataFromStorage();
+    getHouseList();
     // getBalance(profile.value?.id ?? "");
     super.onInit();
   }

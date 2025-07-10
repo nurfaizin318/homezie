@@ -1,6 +1,6 @@
 class ApiPaths {
   // static const String baseUrl = 'http://www.google.com:81/';
-  static const String baseUrl = "http://localhost:3000";
+  static const String baseUrl = "http://localhost:3001";
 
 
 //auth
@@ -8,7 +8,7 @@ class ApiPaths {
   static const String register = '/auth/register';
 
 //home
-  static const String balance = '/wallets/balance/';
+  static const String houses = '/houses';
 
 
   static const String logout = '/v1/auth/logout';

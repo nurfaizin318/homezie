@@ -9,9 +9,9 @@ class Homerepository {
 
   static final instance = Homerepository._();
 
-  Future<BaseResponse> getBalance(String id) async {
+  Future<BaseResponse> getHouseList() async {
     try {
-      final response = await service.get(ApiPaths.balance + id,);
+      final response = await service.get(ApiPaths.houses);
       return response;
     } catch (error) {
       rethrow;
