@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:homzie/Module/Home/model.dart';
 import 'package:homzie/Module/Home/viewModel.dart';
 import 'package:homzie/Theme/appColors.dart';
-import 'package:homzie/Utils/Extention/Currency/currency.dart';
 import 'package:homzie/Utils/Style/style.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -29,12 +28,6 @@ class Home extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            FloatingActionButton(
-              onPressed: () {
-                controller.getHouseList();
-              },
-              child: Icon(Icons.add),
-            ),
             Container(
               alignment: Alignment.centerLeft,
               margin: EdgeInsets.symmetric(horizontal: 24),
@@ -80,7 +73,7 @@ class Home extends StatelessWidget {
                 itemCount: controller.houseList.value.length,
                 itemBuilder: (context, index) {
                   final house = controller.houseList.value[index];
-                  return Flexible(child: HouseList(house));
+                  return Flexible(child: HouseList(house, controller));
                 },
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // max 2 item kesamping
@@ -197,66 +190,69 @@ class Home extends StatelessWidget {
     );
   }
 
-  Container HouseList(HouseEntity data) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-      width: 191,
-      height: 195,
-      decoration: RoundedBoxWithShadow.getDecoration(
-        radius: 10,
-        elevation: 1,
-        color: Colors.white,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.asset(
-            "assets/images/house-icon.png",
-            fit: BoxFit.cover,
-            height: 90,
-            width: double.infinity,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              onTap: () {
-                // Navigate to detail page
-                Get.toNamed("/detail");
-              },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                   Text(
-                    data.name,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  ),
-                  const SizedBox(height: 4),
-                  const Text(
-                    'This is a description of the card.',
-                    style: TextStyle(fontSize: 12, color: AppColors.info),
-                  ),
-                  const SizedBox(height: 8),
-                  Container(
-                    child: Row(
-                      children:  [
-                        Expanded(
-                          child: Text(
-                            data.location,
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.black54,
+  InkWell HouseList(HouseEntity data, HomeController c) {
+    return InkWell(
+      onTap: (){c.navigateToDetail(data.id);},
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+        width: 191,
+        height: 195,
+        decoration: RoundedBoxWithShadow.getDecoration(
+          radius: 10,
+          elevation: 1,
+          color: Colors.white,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              "assets/images/house-icon.png",
+              fit: BoxFit.cover,
+              height: 90,
+              width: double.infinity,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {
+                  // Navigate to detail page
+                  Get.toNamed("/detail");
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                     Text(
+                      data.name,
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    const SizedBox(height: 4),
+                    const Text(
+                      'This is a description of the card.',
+                      style: TextStyle(fontSize: 12, color: AppColors.info),
+                    ),
+                    const SizedBox(height: 8),
+                    Container(
+                      child: Row(
+                        children:  [
+                          Expanded(
+                            child: Text(
+                              data.location,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.black54,
+                              ),
                             ),
                           ),
-                        ),
-                        Icon(Icons.map, size: 16, color: Colors.blue),
-                      ],
+                          Icon(Icons.map, size: 16, color: Colors.blue),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

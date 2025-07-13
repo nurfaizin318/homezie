@@ -6,7 +6,7 @@ import 'package:homzie/Theme/appColors.dart';
 
 
 class RegisterPage extends StatelessWidget {
-  RegisterPage({super.key});
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {

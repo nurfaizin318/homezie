@@ -9,10 +9,10 @@ class LoginController extends GetxController {
   RxBool obsecureTestStatus = true.obs;
   RxBool authorizationFailed = false.obs;
   RxString errorMessage = "".obs;
-  TextEditingController password = new TextEditingController();
-  TextEditingController email = new TextEditingController();
-  TextEditingController name = new TextEditingController();
-  TextEditingController phoneNumber = new TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController name = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
 
   RxBool isLoginLoading = false.obs;
 

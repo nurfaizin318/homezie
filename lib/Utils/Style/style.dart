@@ -69,7 +69,7 @@ class RoundedFixGradient {
 //=============================== Text style =======================================
 
 class DynamicTextStyle {
-  static const blue = Color(0xFF00000);
+  static const blue = Color(0x0ff00000);
   static const Color defaultColor = blue; // Warna default
   static const double defaultFontSize = 16.0; // Ukuran font default
 

@@ -7,7 +7,9 @@ import 'package:homzie/Module/Layout/viewModel.dart';
 import 'package:homzie/Module/Login/viewModel.dart';
 import 'package:homzie/Module/OnBoarding/viewModel.dart';
 import 'package:homzie/Module/Profile/ViewModel.dart';
+import 'package:homzie/Module/PropertyList/viewModel.dart';
 import 'package:homzie/Module/Register/viewModel.dart';
+import 'package:homzie/Module/Simulation/viewModel.dart';
 import 'package:homzie/Module/SplashScreen/viewModel.dart';
 
 class LoginBinding implements Bindings {
@@ -69,4 +71,21 @@ class DetailBinding implements Bindings {
     Get.lazyPut(() => DetailController(), fenix: false);
   }
 }
+
+class PropertyListBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => PropertyListController(), fenix: false);
+  }
+}
+
+class SimulationBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => SimulationController(), fenix: false);
+  }
+}
+
+
+
 

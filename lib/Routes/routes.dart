@@ -7,7 +7,9 @@ import 'package:homzie/Module/Layout/View.dart';
 import 'package:homzie/Module/Login/view.dart';
 import 'package:homzie/Module/OnBoarding/view.dart';
 import 'package:homzie/Module/Profile/View.dart';
+import 'package:homzie/Module/PropertyList/view.dart';
 import 'package:homzie/Module/Register/view.dart';
+import 'package:homzie/Module/Simulation/view.dart';
 import 'package:homzie/Module/SplashScreen/view.dart';
 
 class Routes {
@@ -36,7 +38,13 @@ class Routes {
         name: "/detail",
         page: () =>  Detail(),
         binding: DetailBinding()),
-
-
+   GetPage(
+        name: "/property-list",
+        page: () =>  PropertyList(),
+        binding: PropertyListBinding()),
+   GetPage(
+        name: "/simulation",
+        page: () =>  Simulation(),
+        binding: SimulationBinding()),
   ];
 }

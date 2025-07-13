@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'dart:async';
 
 class SplashScreenController extends GetxController {
   @override

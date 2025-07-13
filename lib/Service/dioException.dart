@@ -54,35 +54,28 @@ class DioCustomException implements Exception {
         errorMessage = DioExceptionHeader.ConnectionTimeout.value;
         break;
       case DioExceptionType.sendTimeout:
-        errorMessage = DioExceptionHeader.SendTimeOut.value;
-        ;
+        errorMessage = DioExceptionHeader.SendTimeOut.value; {}
         break;
       case DioExceptionType.receiveTimeout:
-        errorMessage = DioExceptionHeader.ReceiveTimeout.value;
-        ;
+        errorMessage = DioExceptionHeader.ReceiveTimeout.value; {}
         // ButtomSheetReceiveTimeout().show();
         break;
       case DioExceptionType.badResponse:
-        errorMessage = DioExceptionHeader.BadResponse.value;
-        ;
+        errorMessage = DioExceptionHeader.BadResponse.value; {}
         // BottomSheet400().show("Invalid response");
         break;
       case DioExceptionType.cancel:
-        errorMessage = DioExceptionHeader.Cancel.value;
-        ;
+        errorMessage = DioExceptionHeader.Cancel.value; {}
         break;
       case DioExceptionType.unknown:
         handleStatusCode(error.response);
-        errorMessage = DioExceptionHeader.Unknown.value;
-        ;
+        errorMessage = DioExceptionHeader.Unknown.value; {}
         break;
       case DioExceptionType.badCertificate:
-        errorMessage = DioExceptionHeader.BadCertificate.value;
-        ;
+        errorMessage = DioExceptionHeader.BadCertificate.value; {}
         break;
       case DioExceptionType.connectionError:
-        errorMessage = DioExceptionHeader.ConnectionError.value;
-        ;
+        errorMessage = DioExceptionHeader.ConnectionError.value; {}
         break;
     }
     if (CancelToken.isCancel(error)) {

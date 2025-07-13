@@ -33,10 +33,6 @@ class AuthInterceptor extends Interceptor {
 
   AuthInterceptor(this.token);
 
-  @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    super.onRequest(options, handler);
-  }
 }
 
 class RequestInterceptor extends Interceptor {

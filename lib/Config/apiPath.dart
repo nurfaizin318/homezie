@@ -11,6 +11,12 @@ class ApiPaths {
   static const String houses = '/houses';
 
 
+//Detail
+static const String detail = '/detail';
+
+
+
+
   static const String logout = '/v1/auth/logout';
   static const String refreshToken = '/v1/auth/refresh';
   static const String resetPassword = '/v1/auth/reset-password';

@@ -24,6 +24,13 @@ class HomeController extends GetxController {
     Get.toNamed('/register');
   }
 
+  void navigateToDetail(id) {
+    // Pass the house id as an argument when navigating
+    // Example: Get.toNamed('/detail', arguments: {'id': houseId});
+    // Replace 'houseId' with the actual id you want to pass
+    Get.toNamed('/detail', arguments: {'id': id});
+  }
+
   void moveToHomePage() {
     Get.toNamed('/layout');
   }
