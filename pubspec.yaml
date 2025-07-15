@@ -42,7 +42,7 @@ dependencies:
   shimmer: ^3.0.0
   encrypt: ^5.0.1
   path_provider: ^2.1.5
-  skeletonizer: ^1.4.3
+  skeletonizer: ^2.0.1
   intl: ^0.20.2
   awesome_bottom_bar: ^1.2.4
   # The following adds the Cupertino Icons font to your application.
