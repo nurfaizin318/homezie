@@ -1,13 +1,14 @@
-
 import 'package:get/get.dart';
 import 'package:homzie/Binding/binding.dart';
 import 'package:homzie/Module/Chat/View.dart';
 import 'package:homzie/Module/Detail/view.dart';
+import 'package:homzie/Module/Financing/view.dart';
 import 'package:homzie/Module/Layout/View.dart';
 import 'package:homzie/Module/Login/view.dart';
 import 'package:homzie/Module/OnBoarding/view.dart';
 import 'package:homzie/Module/Profile/View.dart';
 import 'package:homzie/Module/PropertyList/view.dart';
+import 'package:homzie/Module/Recomendation/view.dart';
 import 'package:homzie/Module/Register/view.dart';
 import 'package:homzie/Module/Simulation/view.dart';
 import 'package:homzie/Module/SplashScreen/view.dart';
@@ -15,36 +16,52 @@ import 'package:homzie/Module/SplashScreen/view.dart';
 class Routes {
   static final pages = [
     GetPage(
-        name: "/", page: () => SplashScreen(), binding: SplashScreenBinding()),
+      name: "/",
+      page: () => SplashScreen(),
+      binding: SplashScreenBinding(),
+    ),
     GetPage(name: "/login", page: () => Login(), binding: LoginBinding()),
     GetPage(
-        name: "/register",
-        page: () => RegisterPage(),
-        binding: RegisterBinding()),
+      name: "/register",
+      page: () => RegisterPage(),
+      binding: RegisterBinding(),
+    ),
     GetPage(
       name: "/layout",
       page: () => const Layout(),
       binding: LayoutBinding(),
     ),
+    GetPage(name: "/profile", page: () => Profile(), binding: ProfileBinding()),
     GetPage(
-        name: "/profile", page: () => Profile(), binding: ProfileBinding()),
+      name: "/chat",
+      page: () => const ChatPage(),
+      binding: ChatBinding(),
+    ),
     GetPage(
-        name: "/chat", page: () => const ChatPage(), binding: ChatBinding()),
+      name: "/onboarding",
+      page: () => const OnBoarding(),
+      binding: OnBoardingBinding(),
+    ),
+    GetPage(name: "/detail", page: () => Detail(), binding: DetailBinding()),
     GetPage(
-        name: "/onboarding",
-        page: () => const OnBoarding(),
-        binding: OnBoardingBinding()),
+      name: "/property-list",
+      page: () => PropertyList(),
+      binding: PropertyListBinding(),
+    ),
     GetPage(
-        name: "/detail",
-        page: () =>  Detail(),
-        binding: DetailBinding()),
-   GetPage(
-        name: "/property-list",
-        page: () =>  PropertyList(),
-        binding: PropertyListBinding()),
-   GetPage(
-        name: "/simulation",
-        page: () =>  Simulation(),
-        binding: SimulationBinding()),
+      name: "/simulation",
+      page: () => Simulation(),
+      binding: SimulationBinding(),
+    ),
+    GetPage(
+      name: '/recommendation',
+      page: () => Recommendation(),
+      binding: RecomendationBinding(),
+    ),
+    GetPage(
+      name: '/financing',
+      page: () => FinancingCalculator(),
+      binding: FinancingBinding(),
+    ),
   ];
 }
