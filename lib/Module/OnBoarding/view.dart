@@ -52,21 +52,75 @@ class OnBoarding extends StatelessWidget {
    
       pages: [
         PageViewModel(
-          title: "Selamat Datang",
+          titleWidget: RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "Choose a",
+                  style: pageDecoration.titleTextStyle.copyWith(
+                    color: Colors.black,
+                  ),
+                ),
+                TextSpan(
+                  text: " house",
+                  style: pageDecoration.titleTextStyle.copyWith(
+                    color: Colors.blueAccent,
+                  ),
+                ),
+              ],
+            ),
+          ),
           body: "Find your dream house,\n your house your choice",
           image: buildImage('onboarding-1.png'),
           decoration: pageDecoration,
         ),
         
         PageViewModel(
-          title: "Promo Melimpah",
+          titleWidget: RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "Choose based on",
+                  style: pageDecoration.titleTextStyle.copyWith(
+                    color: Colors.black,
+                  ),
+                ),
+                TextSpan(
+                  text: " \n criteria",
+                  style: pageDecoration.titleTextStyle.copyWith(
+                    color: Colors.blueAccent,
+                  ),
+                ),
+              ],
+            ),
+          ),
           body: "Pick your house \n based on what you need",
            image: buildImage('onboarding-2.png'),
           decoration: pageDecoration,
         ),
           PageViewModel(
-          title: "Calculate your home mortgage",
-          body: "Easily calculate your home mortgage",
+            titleWidget: RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "Calculate your home",
+                    style: pageDecoration.titleTextStyle.copyWith(
+                      color: Colors.black,
+                    ),
+                  ),
+                  TextSpan(
+                    text: " \n mortgage",
+                    style: pageDecoration.titleTextStyle.copyWith(
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          body: "Easily calculate \n your home mortgage",
           image: buildImage('onboarding-3.png'),
           decoration: pageDecoration,
         ),

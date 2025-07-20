@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:homzie/Module/Login/viewModel.dart';
 import 'package:homzie/Theme/appColors.dart';
 
@@ -43,30 +44,24 @@ class Login extends StatelessWidget {
                           ),
                           child: Column(
                             children: [
+                              const SizedBox(
+                                height: 45,
+                              ),
                               Image.asset(
-                                "assets/images/logo_product_2.png",
+                                "assets/images/HouseZie.png",
                                 fit: BoxFit.cover,
-                                height: 15,
-                                width: 100,
+                                height: 30,
+                                width: 180,
                               ),
                               const SizedBox(
-                                height: 10,
-                              ),
-                              Text("Sign in to your Account",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: AppColors.background,
-                                      fontSize: 40,
-                                      height: 1.2,
-                                      fontWeight: FontWeight.bold)),
-                              const SizedBox(
-                                height: 10,
+                                height: 25,
                               ),
                               Text("Enter your email and password to log in ",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                       color: AppColors.background,
                                       fontSize: 16,
+                                      fontWeight: FontWeight.w500,
                                       height: 1)),
                             ],
                           ),

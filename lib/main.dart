@@ -62,8 +62,8 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       navigatorKey: _alice.getNavigatorKey(),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/layout',
-      initialBinding: LayoutBinding(),
+      initialRoute: '/onboarding',
+      initialBinding: OnBoardingBinding(),
       getPages: Routes.pages,
       theme: AppTheme.themeData,
     );

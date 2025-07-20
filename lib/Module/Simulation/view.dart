@@ -26,6 +26,7 @@ class Simulation extends StatelessWidget {
     final Map<String, String> selections = {};
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,

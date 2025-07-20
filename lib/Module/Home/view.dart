@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:homzie/Module/Home/model.dart';
 import 'package:homzie/Module/Home/viewModel.dart';
 import 'package:homzie/Theme/appColors.dart';
@@ -17,7 +18,7 @@ class Home extends StatelessWidget {
     final controller = Get.find<HomeController>();
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         // title: const Text("Tiketku"),
@@ -34,10 +35,10 @@ class Home extends StatelessWidget {
 
               child: Column(
                 children: [
-                  Text("Choose Your", style: TextStyle(fontSize: 21)),
+                  Text("Choose Your", style: GoogleFonts.poppins(fontSize: 21)),
                   Text(
                     " Dream House",
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: AppColors.primary,
@@ -48,7 +49,7 @@ class Home extends StatelessWidget {
             ),
             SizedBox(height: 15),
             TextFieldSearch(),
-            SizedBox(height: 50),
+            SizedBox(height: 40),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 24),
               child: Row(
@@ -194,7 +195,7 @@ class Home extends StatelessWidget {
     return InkWell(
       onTap: (){c.navigateToDetail(data.id);},
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         width: 191,
         height: 195,
         decoration: RoundedBoxWithShadow.getDecoration(
@@ -208,7 +209,7 @@ class Home extends StatelessWidget {
             Image.asset(
               "assets/images/house-icon.png",
               fit: BoxFit.cover,
-              height: 90,
+              height: 95,
               width: double.infinity,
             ),
             Padding(
@@ -221,16 +222,18 @@ class Home extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                     Text(
+                    Text(
                       data.name,
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600, fontSize: 14
+                      ),
                     ),
-                    const SizedBox(height: 4),
-                    const Text(
-                      'This is a description of the card.',
+                    const SizedBox(height: 2),
+                    Text(
+                      "Rp. ${data.price}",
                       style: TextStyle(fontSize: 12, color: AppColors.info),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 6),
                     Container(
                       child: Row(
                         children:  [
@@ -277,7 +280,7 @@ class Home extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.blue, width: 1.0),
             borderRadius: BorderRadius.circular(25),
           ),
-          hintText: 'Email address',
+          hintText: 'Search',
           hintStyle: const TextStyle(color: Colors.grey),
           prefixIcon: const Icon(Icons.search, color: Colors.grey),
         ),
