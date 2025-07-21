@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:homzie/Module/Financing/viewModel.dart';
 
 
@@ -12,6 +13,7 @@ class FinancingCalculator extends StatelessWidget {
      final controller = Get.find<FinancingController>();
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -38,7 +40,7 @@ class FinancingCalculator extends StatelessWidget {
             decoration: InputDecoration(
               hintText: 'Occupation',
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(20),
               ),
             ),
           ),
@@ -51,7 +53,7 @@ class FinancingCalculator extends StatelessWidget {
             decoration: InputDecoration(
               hintText: 'Down Payment',
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(20),
               ),
             ),
           ),
@@ -64,7 +66,7 @@ class FinancingCalculator extends StatelessWidget {
             decoration: InputDecoration(
               hintText: 'Rp.',
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(20),
               ),
             ),
           ),
@@ -84,7 +86,7 @@ class FinancingCalculator extends StatelessWidget {
                 },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                 ),
               )),
@@ -99,12 +101,15 @@ class FinancingCalculator extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(20),
                 ),
               ),
               child: Text(
                 'Calculate',
-                style: TextStyle(fontSize: 16),
+                style: GoogleFonts.poppins(fontSize: 16,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold
+                ),
               ),
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:homzie/Module/Recomendation/viewModel.dart';
 import 'package:homzie/Theme/appColors.dart';
 
@@ -14,6 +15,7 @@ class Recommendation extends StatelessWidget {
      final controller = Get.find<RecommendationController>();
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -23,7 +25,7 @@ class Recommendation extends StatelessWidget {
         ),
         title: Text(
           'Result',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
@@ -41,10 +43,11 @@ class Recommendation extends StatelessWidget {
                   children: [
                      SizedBox(height: 15),
                     Text(
-                      'Ranking  1}:',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 8, 12, 16),
+                      'Ranking  1:',
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF1976D2),
                       ),
                     ),
                     SizedBox(height: 8),
