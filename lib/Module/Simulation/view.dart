@@ -105,6 +105,7 @@ class _SimulationForm extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(height: 50),
       ],
     );
   }

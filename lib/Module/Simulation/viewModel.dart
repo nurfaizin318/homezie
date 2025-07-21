@@ -11,6 +11,6 @@ class SimulationController extends GetxController {
 
 
    void submit() {
-    print(selections);
+    Get.toNamed('/recommendation');
   }
 }

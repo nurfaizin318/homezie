@@ -2,12 +2,15 @@
 import 'package:get/get.dart';
 import 'package:homzie/Module/Chat/ViewModel.dart';
 import 'package:homzie/Module/Detail/viewModel.dart';
+import 'package:homzie/Module/Financing/view.dart';
+import 'package:homzie/Module/Financing/viewModel.dart';
 import 'package:homzie/Module/Home/viewModel.dart';
 import 'package:homzie/Module/Layout/viewModel.dart';
 import 'package:homzie/Module/Login/viewModel.dart';
 import 'package:homzie/Module/OnBoarding/viewModel.dart';
 import 'package:homzie/Module/Profile/ViewModel.dart';
 import 'package:homzie/Module/PropertyList/viewModel.dart';
+import 'package:homzie/Module/Recomendation/viewModel.dart';
 import 'package:homzie/Module/Register/viewModel.dart';
 import 'package:homzie/Module/Simulation/viewModel.dart';
 import 'package:homzie/Module/SplashScreen/viewModel.dart';
@@ -85,6 +88,23 @@ class SimulationBinding implements Bindings {
     Get.lazyPut(() => SimulationController(), fenix: false);
   }
 }
+
+class RecomendationBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => RecommendationController(), fenix: false);
+  }
+}
+
+class FinancingBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => FinancingController(), fenix: false);
+  }
+}
+
+
+
 
 
 
