@@ -9,6 +9,8 @@ import 'package:homzie/Utils/Extention/Currency/currency.dart';
 import 'package:homzie/Utils/Style/style.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../Home/model.dart';
+
 class Detail extends StatelessWidget {
   const Detail({super.key});
 
@@ -45,8 +47,8 @@ class Detail extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(
-                  "assets/images/house-icon.png",
+                Image.network(
+                  controller.detail.value?.imageUrl ?? "Image",
                   fit: BoxFit.cover,
                   height: 300,
                   width: width,
@@ -277,7 +279,7 @@ class Detail extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            "Buy Now",
+                            "Tambahkan",
                             style: TextStyle(color: AppColors.background),
                           ),
                         ),

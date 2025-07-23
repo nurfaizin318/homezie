@@ -5,6 +5,7 @@ import 'package:homzie/Module/Home/model.dart';
 import 'package:homzie/Module/Home/viewModel.dart';
 import 'package:homzie/Theme/appColors.dart';
 import 'package:homzie/Utils/Style/style.dart';
+import 'package:intl/intl.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class Home extends StatelessWidget {
@@ -206,8 +207,8 @@ class Home extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              "assets/images/house-icon.png",
+            Image.network(
+              data.imageUrl,
               fit: BoxFit.cover,
               height: 95,
               width: double.infinity,
@@ -230,7 +231,7 @@ class Home extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      "Rp. ${data.price}",
+                      "Rp. ${NumberFormat.decimalPattern('id').format(int.parse(data.price))}",
                       style: TextStyle(fontSize: 12, color: AppColors.info),
                     ),
                     const SizedBox(height: 6),
