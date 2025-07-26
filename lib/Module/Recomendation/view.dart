@@ -43,7 +43,7 @@ class Recommendation extends StatelessWidget {
                   children: [
                      SizedBox(height: 15),
                     Text(
-                      'Ranking  1:',
+                      'Ranking ${house['ranking']}:',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -69,7 +69,7 @@ class Recommendation extends StatelessWidget {
                                 ClipRRect(
                                   borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                                   child: Image.network(
-                                    "https://rikarich.id/wp-content/uploads/2022/01/desain-rumah-impian-1628498422735652666.webp",
+                                    house['image_url'] as String,
                                     height: 180,
                                     width: double.infinity,
                                     fit: BoxFit.cover,
@@ -77,7 +77,7 @@ class Recommendation extends StatelessWidget {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  "Mian Road",
+                                  house['name'] as String,
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
@@ -127,7 +127,7 @@ class Recommendation extends StatelessWidget {
                                     bottomLeft: Radius.circular(16),
                                   ),
                                   child: Image.network(
-                                    "https://rikarich.id/wp-content/uploads/2022/01/desain-rumah-impian-1628498422735652666.webp",
+                                    house['image_url'] as String,
                                     width: 100,
                                     height: 100,
                                     fit: BoxFit.cover,
@@ -140,7 +140,7 @@ class Recommendation extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "Main",
+                                          house['name'] as String,
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 14,

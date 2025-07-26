@@ -55,8 +55,8 @@ class RegisterController extends GetxController {
         Get.dialog(
           CustomPopup(
             imagePath: 'assets/images/question.png',
-            title: 'Akunmu berhadil dibuat ',
-            description: 'login untuk masuk ke akun kamu?',
+            title: 'Akunmu berhasil dibuat ',
+            description: 'Login untuk masuk ke akun kamu?',
             leftButtonText: 'Tidak',
             onLeftButtonPressed: () => Get.back(),
             rightButtonText: 'Ya',

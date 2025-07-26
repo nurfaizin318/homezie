@@ -14,11 +14,11 @@ class Simulation extends StatelessWidget {
   ];
 
   final comparisons = const [
-    'Harga Rumah banding Luas Tanah',
-    'Harga Rumah banding Luas Bangunan',
-    'Harga Rumah banding Jumlah Kamar',
-    'Harga Rumah banding Lokasi',
-    'Luas Tanah banding Luas Bangunan',
+    'Harga Rumah',
+    'Luas Tanah',
+    'Luas Bangunan',
+    'Jumlah Kamar Tidur',
+    'Lokasi',
   ];
 
   @override
