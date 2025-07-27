@@ -2,6 +2,7 @@
 import 'package:dio/dio.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:homzie/Binding/binding.dart';
+import 'package:homzie/Service/dioInterceptor.dart';
 import 'package:homzie/Theme/appTheme.dart';
 import 'package:homzie/Utils/Extention/Storage/hive.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
@@ -53,6 +54,8 @@ class _MyAppState extends State<MyApp> {
       followRedirects: false,
     ));
     _dio.interceptors.add(_alice.getDioInterceptor());
+    _dio.interceptors.add(RequestInterceptor());
+    
   }
 
 

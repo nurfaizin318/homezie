@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homzie/Module/Simulation/model.dart';
 import 'package:homzie/Module/Simulation/viewModel.dart';
+
+
 
 class Simulation extends StatelessWidget {
   const Simulation({super.key});
 
   final options = const [
-    'Sangat Kurang Penting',
-    'Cukup Kurang Penting',
-    'Sama Penting',
-    'Cukup Lebih Penting',
-    'Sangat Lebih Penting',
+    OptionItem('Sangat Kurang Penting', 0.2),
+    OptionItem('Cukup Kurang Penting', 0.333),
+    OptionItem('Sama Penting', 1),
+    OptionItem('Cukup Lebih Penting', 3),
+    OptionItem('Sangat Lebih Penting', 5),
   ];
 
   final comparisons = const [
-    'Harga Rumah',
-    'Luas Tanah',
-    'Luas Bangunan',
-    'Jumlah Kamar Tidur',
-    'Lokasi',
+   ComparisonItems('Harga Rumah', 'price'),
+    ComparisonItems('Luas Tanah', 'land_area'),
+    ComparisonItems('Luas Bangunan', 'distance'),
+    ComparisonItems('Jumlah Kamar Tidur', 'bedrooms'),
+    ComparisonItems('Lokasi', 'building_area'),
   ];
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, String> selections = {};
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -48,8 +49,8 @@ class Simulation extends StatelessWidget {
 }
 
 class _SimulationForm extends StatelessWidget {
-  final List<String> options;
-  final List<String> comparisons;
+  final List<OptionItem> options;
+  final List<ComparisonItems> comparisons;
 
   const _SimulationForm({required this.options, required this.comparisons});
 
@@ -60,21 +61,20 @@ class _SimulationForm extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       children: [
         for (var comparison in comparisons) ...[
-          Text(comparison, style: const TextStyle(fontWeight: FontWeight.bold)),
+          Text(comparison.label, style: const TextStyle(fontWeight: FontWeight.bold)),
           const Divider(),
           Obx(
             () => Column(
-              children:
-                  options.map((option) {
-                    return RadioListTile<String>(
-                      title: Text(option),
-                      value: option,
-                      groupValue: controller.selections[comparison],
-                      onChanged: (value) {
-                        controller.updateSelection(comparison, value!);
-                      },
-                    );
-                  }).toList(),
+              children: options.map((option) {
+                return RadioListTile<double>(
+                  title: Text(option.label),
+                  value: option.point,
+                  groupValue: controller.points[comparison.value],
+                  onChanged: (value) {
+                    controller.updateSelection(comparison.value, value??0);
+                  },
+                );
+              }).toList(),
             ),
           ),
           const SizedBox(height: 16),
@@ -85,13 +85,11 @@ class _SimulationForm extends StatelessWidget {
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
-              onPressed:
-                  controller.selections.length == 5
-                      ? () {
-                        controller.submit();
-                        // Use a logging framework instead of print in production
-                      }
-                      : null,
+              onPressed: controller.points.length == 5
+                  ? () {
+                      controller.submit();
+                    }
+                  : null,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
                 shape: RoundedRectangleBorder(

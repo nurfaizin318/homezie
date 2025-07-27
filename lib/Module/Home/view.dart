@@ -194,7 +194,9 @@ class Home extends StatelessWidget {
 
   InkWell HouseList(HouseEntity data, HomeController c) {
     return InkWell(
-      onTap: (){c.navigateToDetail(data.id);},
+      onTap: (){
+        c.navigateToDetail(data.id);
+        },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         width: 191,
@@ -207,11 +209,15 @@ class Home extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
-              data.imageUrl,
-              fit: BoxFit.cover,
+            Container(
               height: 95,
               width: double.infinity,
+              child: Image.network(
+                data.imageUrl,
+                fit: BoxFit.cover,
+                height: 95,
+                width: double.infinity,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

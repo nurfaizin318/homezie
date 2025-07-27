@@ -61,7 +61,7 @@ class Services {
         onReceiveProgress: onReceiveProgress,
       );
 
-      print(response.data);
+      // print(response.data);
 
       BaseResponse baseResponse = BaseResponse.fromJson(response.data);
 

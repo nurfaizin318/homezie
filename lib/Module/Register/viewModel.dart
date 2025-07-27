@@ -54,7 +54,7 @@ class RegisterController extends GetxController {
       if (result.success) {
         Get.dialog(
           CustomPopup(
-            imagePath: 'assets/images/question.png',
+            imagePath: 'assets/animations/success_animation.json',
             title: 'Akunmu berhasil dibuat ',
             description: 'Login untuk masuk ke akun kamu?',
             leftButtonText: 'Tidak',
@@ -89,6 +89,8 @@ class RegisterController extends GetxController {
 
   @override
   void onInit() {
+
+    
     // TODO: implement onInit
     super.onInit();
   }

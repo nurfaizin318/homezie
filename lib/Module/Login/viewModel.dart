@@ -40,6 +40,7 @@ class LoginController extends GetxController {
         if (result.success) {
           LoginModel loginModel = LoginModel.fromJson(result.data);
           Storage.saveJson(StorageKey.Profile.value, loginModel);
+          Storage.save(StorageKey.Token.value, loginModel.accessToken);
           Get.offAllNamed("/layout");
         } else if (result.code == 401){
           errorMessage.value =  "wrong email or password";

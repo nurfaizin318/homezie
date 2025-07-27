@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:homzie/Utils/Extention/AES/encrypt.dart';
 
 
-enum StorageKey { Provider, Profile, Token, IsLogin, IsIntroduction }
+enum StorageKey { Provider, Profile, Token, IsLogin, IsIntroduction, AddProperty }
 
 // Buat metode getter untuk mengaitkan nilai String dengan setiap enum
 extension StorageHeader on StorageKey {
@@ -20,6 +20,8 @@ extension StorageHeader on StorageKey {
         return 'isLogin';
       case StorageKey.IsIntroduction:
         return 'isIntroduction';
+      case StorageKey.AddProperty:
+        return 'addProperty';
       default:
         return 'Unknown';
     }

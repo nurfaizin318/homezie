@@ -15,6 +15,8 @@ class ApiPaths {
 static const String detail = '/detail';
 
 
+//simulation
+  static const String simulation = '/simulate/houses';
 
 
   static const String logout = '/v1/auth/logout';

@@ -47,11 +47,15 @@ class Detail extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(
-                  controller.detail.value?.imageUrl ?? "Image",
-                  fit: BoxFit.cover,
-                  height: 300,
+                Container(
                   width: width,
+                  height: 300,
+                  child: Image.network(
+                    controller.detail.value?.imageUrl ?? "Image",
+                    fit: BoxFit.cover,
+                    height: 300,
+                    width: width,
+                  ),
                 ),
                 SizedBox(height: 20),
                 Container(
@@ -265,12 +269,32 @@ class Detail extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                       controller.isExist.value ? SizedBox(
+                        width: width * 0.6,
+                        height: 50,
+                        child: ElevatedButton(
+                          onPressed:  () {
+                            controller.deleteProperty();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.error,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: Text(
+                            "Delete from Property",
+                            style: TextStyle(color: AppColors.background),
+                          ),
+                        ),
+                      )
+                      :
                       SizedBox(
                         width: width * 0.6,
                         height: 50,
                         child: ElevatedButton(
-                          onPressed: () {
-                            // Add your action here
+                          onPressed: controller.isExist.value ? null : () {
+                            controller.addProperty();
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.primary,
@@ -302,6 +326,7 @@ class Detail extends StatelessWidget {
                           child: Icon(Icons.list, color: AppColors.primary),
                         ),
                       ),
+                      
                     ],
                   ),
                 ),

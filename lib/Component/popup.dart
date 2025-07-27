@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class CustomPopup extends StatelessWidget {
   final String imagePath;
@@ -26,16 +27,15 @@ class CustomPopup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool showLeft = leftButtonText != null && onLeftButtonPressed != null;
-    final bool showRight = rightButtonText != null && onRightButtonPressed != null;
+    final bool showRight =
+        rightButtonText != null && onRightButtonPressed != null;
 
     return Stack(
       children: [
         // Background Blur
         BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Container(
-            color: Colors.black.withOpacity(0.2),
-          ),
+          child: Container(color: Colors.black.withOpacity(0.2)),
         ),
 
         // Popup Dialog
@@ -49,11 +49,19 @@ class CustomPopup extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset(imagePath, height: 100, width: 100),
+                  Lottie.asset(
+                    imagePath,
+                    width: 150,
+                    height: 150,
+                    repeat: false,
+                  ),
                   const SizedBox(height: 16),
                   Text(
                     title,
-                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 12),
