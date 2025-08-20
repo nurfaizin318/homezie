@@ -25,15 +25,20 @@ class SimulationController extends GetxController {
     Map<String, dynamic> request = {
       "user_id": profile?.id,
       "house_ids": houses,
-      "ahp_preferences": points,
+      "user_preferences": points,
     };
 
     print(request);
     isLoading.value = true;
     final result = await simulationRepository.simulate(request);
     print(result);
-    if (result.success) {
 
+    if (result.success) {
+      print(result.data['message']);
+      List<dynamic> rawList = result.data['data'];
+      for (var house in rawList) {
+        print('${house['name']} - Rank: ${house['rank']} - Score: ${house['score']}');
+      }
     } else {
       print("Error fetching house list: ${result.message}");
     }

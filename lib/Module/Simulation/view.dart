@@ -9,19 +9,19 @@ class Simulation extends StatelessWidget {
   const Simulation({super.key});
 
   final options = const [
-    OptionItem('Sangat Kurang Penting', 0.2),
-    OptionItem('Cukup Kurang Penting', 0.333),
-    OptionItem('Sama Penting', 1),
-    OptionItem('Cukup Lebih Penting', 3),
+    OptionItem('Sangat Kurang Penting', 1),
+    OptionItem('Cukup Kurang Penting', 2),
+    OptionItem('Sama Penting', 3),
+    OptionItem('Cukup Lebih Penting', 4),
     OptionItem('Sangat Lebih Penting', 5),
   ];
 
   final comparisons = const [
    ComparisonItems('Harga Rumah', 'price'),
     ComparisonItems('Luas Tanah', 'land_area'),
-    ComparisonItems('Luas Bangunan', 'distance'),
+    ComparisonItems('Luas Bangunan', 'building_area'),
     ComparisonItems('Jumlah Kamar Tidur', 'bedrooms'),
-    ComparisonItems('Lokasi', 'building_area'),
+    ComparisonItems('Lokasi', 'distance'),
   ];
 
   @override
